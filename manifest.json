@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Kahoot AI Helper",
+  "version": "1.0.0",
+  "description": "Kahoot AI Helper v1.0.0-alpha: AI-powered quiz assistant for Kahoot with dot, highlight, corner-number, floating and notification display modes.",
+
+  "permissions": ["storage", "scripting", "activeTab", "tabs", "notifications"],
+  "host_permissions": [
+    "https://kahoot.it/*",
+    "https://*.kahoot.it/*",
+    "https://js.puter.com/*",
+    "https://*.puter.com/*",
+    "https://openrouter.ai/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://kahoot.it/*", "https://*.kahoot.it/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_icon": "icon.png" },
+  "icons": { "16": "icon.png", "48": "icon.png", "128": "icon.png" },
+  "web_accessible_resources": [
+    {
+      "resources": ["injected.js"],
+      "matches": ["https://kahoot.it/*", "https://*.kahoot.it/*"]
+    }
+  ]
+}

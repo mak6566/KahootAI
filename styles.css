@@ -1,0 +1,196 @@
+/* Kahoot AI Helper v2.0 — on-page overlay styles */
+
+/* ── Answer overlays (dot + highlight) ─────────────────────────────────── */
+/* Overlays are appended INSIDE the answer button with position:absolute   */
+/* so they follow React re-renders without needing BCR recalculation.      */
+.kh-ai-overlay {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2147483647;
+  box-sizing: border-box;
+}
+.kh-ai-overlay.kh-ai-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.kh-ai-overlay.kh-ai-highlight {
+  inset: 0;
+  border: 4px solid #3fb950;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(63, 185, 80, 0.6), 0 0 20px rgba(63, 185, 80, 0.3) inset;
+  background: rgba(63, 185, 80, 0.1);
+}
+
+/* ── Corner number ──────────────────────────────────────────────────────── */
+#kh-ai-corner {
+  position: fixed;
+  bottom: 6px;
+  right: 8px;
+  font: 700 13px/1 -apple-system, system-ui, sans-serif;
+  color: rgba(255, 255, 255, 0.65);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  z-index: 2147483647;
+  user-select: none;
+}
+
+/* ── Floating panel ─────────────────────────────────────────────────────── */
+#kh-ai-float {
+  position: fixed;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(13, 17, 23, 0.95);
+  color: #e6edf3;
+  font: 12px/1.5 -apple-system, system-ui, sans-serif;
+  padding: 12px 14px;
+  border-radius: 12px;
+  z-index: 2147483647;
+  max-width: 320px;
+  min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none;
+  cursor: move;
+}
+#kh-ai-float .kh-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+#kh-ai-float .kh-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #8b949e;
+}
+#kh-ai-float .kh-lat {
+  font-size: 10px;
+  color: #58a6ff;
+  margin-left: auto;
+  margin-right: 8px;
+}
+#kh-ai-float .kh-close {
+  cursor: pointer;
+  color: #8b949e;
+  font-size: 15px;
+  background: transparent;
+  border: 0;
+  padding: 0 3px;
+  line-height: 1;
+}
+#kh-ai-float .kh-close:hover { color: #e6edf3; }
+#kh-ai-float .kh-q {
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #e6edf3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+#kh-ai-float .kh-meta {
+  font-size: 10px;
+  color: #8b949e;
+  margin-bottom: 6px;
+}
+#kh-ai-float .kh-ans {
+  margin: 3px 0;
+  font-size: 12px;
+  color: #8b949e;
+}
+#kh-ai-float .kh-ans.kh-correct {
+  color: #3fb950;
+  font-weight: 700;
+}
+#kh-ai-float .kh-actions {
+  display: flex;
+  gap: 4px;
+  margin-top: 10px;
+}
+#kh-ai-float .kh-actions button {
+  width: 26px;
+  height: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e6edf3;
+  font: 700 12px/1 -apple-system, system-ui, sans-serif;
+  cursor: pointer;
+  transition: 0.15s;
+}
+#kh-ai-float .kh-actions button:hover {
+  background: rgba(88, 166, 255, 0.15);
+  border-color: rgba(88, 166, 255, 0.4);
+  color: #58a6ff;
+}
+#kh-ai-float .kh-status {
+  font-size: 10px;
+  color: #8b949e;
+  margin-top: 6px;
+}
+#kh-ai-float .kh-err { color: #f85149; }
+
+/* ── Debug console ──────────────────────────────────────────────────────── */
+#kh-ai-debug {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  width: 360px;
+  max-height: 55vh;
+  background: rgba(1, 4, 9, 0.96);
+  color: #e6edf3;
+  font: 11px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  border-radius: 10px;
+  z-index: 2147483647;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+#kh-ai-debug .kh-dbg-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  background: rgba(13, 17, 23, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px 10px 0 0;
+  cursor: move;
+  font-weight: 700;
+  font-size: 11px;
+  color: #e6edf3;
+}
+#kh-ai-debug .kh-dbg-head span { flex: 1; }
+#kh-ai-debug .kh-dbg-head button {
+  background: rgba(255, 255, 255, 0.07);
+  border: 0;
+  color: #e6edf3;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+#kh-ai-debug .kh-dbg-head button:hover { background: rgba(255, 255, 255, 0.15); }
+#kh-ai-debug .kh-dbg-body {
+  padding: 6px 10px;
+  overflow-y: auto;
+  flex: 1;
+  word-break: break-word;
+}
+#kh-ai-debug .kh-dbg-line {
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+#kh-ai-debug .kh-dbg-info { color: #8b949e; }
+#kh-ai-debug .kh-dbg-err { color: #f85149; }
