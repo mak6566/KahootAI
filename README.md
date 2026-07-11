@@ -6,7 +6,7 @@ AI-powered assistant for Kahoot! quizzes. It reads the live question and answer 
 
 | Highlight Mode & Debug | Floating Info Panel | Dot Mode Indicator |
 |:---:|:---:|:---:|
-| ![Highlight Mode](Screenshot_20260711-134431~2.png) | ![Floating Panel](Screenshot_20260711-134419~2.png) | ![Dot Mode](Screenshot_20260711-134339~2.png) |
+| ![Highlight Mode](Screenshot_20260711-134431~2.png) | ![Floating Panel](Screenshot_20260711-134419~2.png) | ![Highlight mode](Screenshot_20260711-134339~2.png) |
 
 ## Features
 
