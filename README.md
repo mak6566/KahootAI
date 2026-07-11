@@ -51,6 +51,10 @@ AI-powered assistant for Kahoot! quizzes. It reads the live question and answer 
 - API keys are stored locally in the browser via `chrome.storage` and are sent only to the chosen provider's API.
 - Puter authentication is handled by the official Puter.js script in the page context; the extension itself does not access credentials.
 
+## Disclaimer
+
+  This project is provided for educational and research purposes only. The author is not responsible for any misuse of this software or for any consequences resulting from its use. Users are solely responsible for complying with applicable laws and platform terms of service.
+
 ## License
 
 MIT
